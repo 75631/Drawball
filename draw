@@ -1,0 +1,22 @@
+i = 0 #number of trials
+n = 0 #number of two red balls
+m = 0 #number of first red ball second greenball
+import random
+while i<=999:
+  boxA = ['r1','r2']
+  boxB = ['r3','g1']
+  boxC = ['g2','g3']
+  box = [boxA,boxB,boxC]
+  boxchoice = random.choice(box)
+  ballchoice = random.choice(boxchoice)
+  if ballchoice == 'r1' or ballchoice == 'r2' or ballchoice == 'r3':
+    boxchoice.remove(ballchoice)
+    secondball = boxchoice[0]
+    if secondball == 'r1' or secondball == 'r2' or secondball == 'r3':
+      n = n+1
+    else:
+      m = m+1
+    i = i+1
+pn = n/i
+pm = m/i
+print ('Out of ',i, 'runs, ',n,'times we got two red balls, ',m,'times we got a red ball followed by green ball. p(tworedball) = ',pn,'p(redthengreen) = ',pm,'.')
